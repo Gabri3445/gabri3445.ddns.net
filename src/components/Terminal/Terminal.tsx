@@ -2,16 +2,21 @@ import { useEffect, useRef } from "react";
 import { useNavigate } from "react-router";
 import CommandParser from "../../utils/commandParser";
 import { useTerminalStore } from "../../stores/useTerminalStore";
+import { useAdminStore } from "../../stores/useAdminStore";
 
 function Terminal() {
   const navigate = useNavigate();
   const terminalStore = useTerminalStore();
-  const commandParser = new CommandParser(navigate, terminalStore);
+  const adminStore = useAdminStore();
+  const commandParser = new CommandParser(navigate, terminalStore, adminStore);
   useEffect(() => {
     terminalStore.commandParser = commandParser;
     terminalStore.commandParser.parseCommand("help", true);
   }, []);
-  //replace with text in reference image and
+  useEffect(() => {
+    //adminstore won't update otherwise
+    terminalStore.commandParser = commandParser;
+  }, [adminStore, terminalStore]);
   const input = useRef<HTMLInputElement>(null);
   return (
     <>
@@ -27,8 +32,6 @@ function Terminal() {
         <form
           onSubmit={(e) => {
             e.preventDefault();
-            //strip user \n
-            //replace with proper parser
             commandParser.parseCommand(terminalStore.promptInput);
             terminalStore.setPromptInput("");
           }}

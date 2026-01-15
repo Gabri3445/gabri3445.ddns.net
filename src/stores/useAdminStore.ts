@@ -1,7 +1,7 @@
 import { create } from "zustand";
 import { AdminState } from "../App.models";
 
-interface AdminStore {
+export interface AdminStore {
   adminState: AdminState;
   setAdminState: (state: AdminState) => void;
 }
