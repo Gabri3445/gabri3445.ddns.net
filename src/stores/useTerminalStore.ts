@@ -29,5 +29,6 @@ export const useTerminalStore = create<TerminalStore>((set, get) => ({
   setPromptInput: (value: string) => set({ promptInput: value }),
   setPrompt: (value: string) => set({ prompt: value }),
   setHidePrompt: (value: boolean) => set({ hidePrompt: value }),
-  setDirectory: (value: string) => set({ directory: value }),
+  setDirectory: (value: string) =>
+    set({ directory: value, prompt: `93.43.233.0${value}>` }),
 }));
