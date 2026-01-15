@@ -6,6 +6,7 @@ export interface TerminalStore {
   hidePrompt: boolean;
   prompt: string;
   promptInput: string;
+  directory: string;
   setTerminalHistory: (history: string) => void;
   appendToTerminalHistory: (text: string) => void;
   setPromptInput: (value: string) => void;
@@ -20,6 +21,7 @@ export const useTerminalStore = create<TerminalStore>((set, get) => ({
   hidePrompt: false,
   prompt: "93.43.233.0@>",
   promptInput: "",
+  directory: "@",
   setTerminalHistory: (history: string) => set({ terminalHistory: history }),
   appendToTerminalHistory: (text: string) =>
     set({ terminalHistory: get().terminalHistory + "\n" + text }),

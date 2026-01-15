@@ -85,7 +85,7 @@ function Login() {
         terminalStore.appendToTerminalHistory(
           `Password: ${"*".repeat(password.length)}`,
         );
-        terminalStore.setPrompt("93.43.233.0@> ");
+        terminalStore.setPrompt(`93.43.233.0${terminalStore.directory}>`);
         terminalStore.setPromptInput("");
         if (username === correctUsername && password === correctPassword) {
           state.current = LoginState.SUCCESS;
@@ -130,7 +130,7 @@ function Login() {
       `Password: ${"*".repeat(correctPassword.length)}`,
     );
     terminalStore.appendToTerminalHistory("Admin Login Successful");
-    terminalStore.setPrompt("93.43.233.0@> ");
+    terminalStore.setPrompt(`93.43.233.0${terminalStore.directory}>`);
     state.current = LoginState.SUCCESS;
     if (usernameInput.current && passwordInput.current) {
       usernameInput.current.disabled = true;
@@ -140,7 +140,9 @@ function Login() {
     setPassword(correctPassword);
   };
   const onRetryButtonClick = () => {
-    terminalStore.appendToTerminalHistory("93.43.233.0@>login");
+    terminalStore.appendToTerminalHistory(
+      `93.43.233.0${terminalStore.directory}>login`,
+    );
     terminalStore.setPrompt("Username: ");
     state.current = LoginState.USERNAME;
     if (usernameInput.current && passwordInput.current) {
@@ -194,7 +196,9 @@ function Login() {
               onClick={() => {
                 setAdminState(AdminState.ADMIN);
                 terminalStore.setHidePrompt(false);
-                terminalStore.setPrompt("93.43.233.0@>");
+                terminalStore.setPrompt(
+                  `93.43.233.0${terminalStore.directory}>`,
+                );
                 terminalStore.setPromptInput("");
                 navigate("/");
               }}
@@ -212,7 +216,9 @@ function Login() {
               onClick={() => {
                 navigate("/");
                 terminalStore.setHidePrompt(false);
-                terminalStore.setPrompt("93.43.233.0@>");
+                terminalStore.setPrompt(
+                  `93.43.233.0${terminalStore.directory}>`,
+                );
                 terminalStore.setPromptInput("");
               }}
             />
@@ -245,7 +251,7 @@ function Login() {
           sideColor="bg-[#6c1a49]"
           onClick={() => {
             terminalStore.setHidePrompt(false);
-            terminalStore.setPrompt("93.43.233.0@>");
+            terminalStore.setPrompt(`93.43.233.0${terminalStore.directory}>`);
             terminalStore.setPromptInput("");
             navigate("/");
           }}
