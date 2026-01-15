@@ -47,6 +47,9 @@ function ButtonList() {
   };
   const openFileView = () => {
     if (checkForAdmin()) {
+      if (terminalStore.commandParser) {
+        terminalStore.commandParser.parseCommand("ls");
+      }
       navigate("/file-system");
       return;
     }
@@ -102,7 +105,9 @@ function ButtonList() {
         isBig={true}
         sideColor={color(false)}
         height="h-12"
-        onClick={() => openFileView()}
+        onClick={() => {
+          openFileView();
+        }}
       />
       {/* TODO after the site is finished
       <Button
