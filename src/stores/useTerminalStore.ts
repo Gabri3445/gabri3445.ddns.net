@@ -12,6 +12,7 @@ export interface TerminalStore {
   setPromptInput: (value: string) => void;
   setPrompt: (value: string) => void;
   setHidePrompt: (value: boolean) => void;
+  setDirectory: (value: string) => void;
   commandParser?: CommandParser;
 }
 
