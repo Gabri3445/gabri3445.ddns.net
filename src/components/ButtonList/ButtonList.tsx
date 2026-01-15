@@ -46,14 +46,13 @@ function ButtonList() {
     setAdminState(AdminState.ERR);
   };
   const openFileView = () => {
+    if (terminalStore.commandParser) {
+      terminalStore.commandParser.parseCommand(Commands.Ls);
+    }
     if (checkForAdmin()) {
-      if (terminalStore.commandParser) {
-        terminalStore.commandParser.parseCommand(Commands.Ls);
-      }
       navigate("/file-system");
       return;
     }
-    setAdminState(AdminState.ERR);
   };
   return (
     <div>
