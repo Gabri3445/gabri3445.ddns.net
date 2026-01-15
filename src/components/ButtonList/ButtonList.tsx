@@ -48,7 +48,7 @@ function ButtonList() {
   const openFileView = () => {
     if (checkForAdmin()) {
       if (terminalStore.commandParser) {
-        terminalStore.commandParser.parseCommand("ls");
+        terminalStore.commandParser.parseCommand(Commands.Ls);
       }
       navigate("/file-system");
       return;
