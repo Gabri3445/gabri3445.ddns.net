@@ -3,6 +3,7 @@ import { AdminState } from "../../App.models";
 import { useAdminStore } from "../../stores/useAdminStore";
 import Button from "../Button/Button";
 import { useTerminalStore } from "../../stores/useTerminalStore";
+import { Commands } from "../../utils/commandParser";
 
 function ButtonList() {
   const { adminState, setAdminState } = useAdminStore();
@@ -60,7 +61,7 @@ function ButtonList() {
         height="h-12"
         onClick={() => {
           if (terminalStore.commandParser) {
-            terminalStore.commandParser.parseCommand("login");
+            terminalStore.commandParser.parseCommand(Commands.Login);
           } else {
             navigate("/login");
           }

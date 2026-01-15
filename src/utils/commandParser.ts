@@ -1,6 +1,13 @@
 import { NavigateFunction } from "react-router";
 import { TerminalStore } from "../stores/useTerminalStore";
 
+export enum Commands {
+  Help = "help",
+  Clear = "clear",
+  Cls = "cls",
+  Login = "login",
+}
+
 export default class CommandParser {
   private navigate: NavigateFunction;
   private terminalStore: TerminalStore;
@@ -11,17 +18,17 @@ export default class CommandParser {
 
   public parseCommand(command: string, hideCommandEcho: boolean = false): void {
     switch (command.trim().toLowerCase()) {
-      case "help":
+      case Commands.Help:
         this.terminalStore.appendToTerminalHistory(
           "Available commands:\nhelp - Show this help message\nclear - Clear the terminal\nlogin - Requests a username an password to log in to the connected system",
         );
         break;
-      case "clear":
-      case "cls":
+      case Commands.Clear:
+      case Commands.Cls:
         hideCommandEcho = true;
         this.terminalStore.setTerminalHistory("");
         break;
-      case "login":
+      case Commands.Login:
         this.navigate("/login");
         break;
       default:
