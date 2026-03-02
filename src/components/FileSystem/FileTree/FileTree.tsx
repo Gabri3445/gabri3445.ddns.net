@@ -2,9 +2,11 @@ import { useState } from "react";
 import Button from "../../Button/Button";
 import { FileNode } from "../FileSystemContent";
 import { useNavigate } from "react-router";
+import { useTerminalStore } from "../../../stores/useTerminalStore";
 
 function FileTree({ node, level }: { node: FileNode; level: number }) {
   const [expanded, setExpanded] = useState(false);
+  const terminalStore = useTerminalStore();
   const navigate = useNavigate();
 
   if (node.type === "link") {
@@ -43,6 +45,7 @@ function FileTree({ node, level }: { node: FileNode; level: number }) {
     );
   }
 
+  //folder
   return (
     <div className={`mx-6`}>
       <Button
@@ -51,7 +54,12 @@ function FileTree({ node, level }: { node: FileNode; level: number }) {
         width="w-full"
         centered={false}
         sideColor="bg-[#837e84]"
-        onClick={() => setExpanded(!expanded)}
+        onClick={() => {
+          terminalStore.commandParser?.parseCommand(
+            `cd ${node.name.replace("/", "")}`,
+          );
+          setExpanded(!expanded);
+        }}
         addBorderLast={true}
       />
       {expanded &&
