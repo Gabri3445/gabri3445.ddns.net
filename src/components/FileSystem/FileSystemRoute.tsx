@@ -1,9 +1,19 @@
+import { useEffect } from "react";
 import { useNavigate } from "react-router";
+import { AdminState } from "../../App.models";
+import { useAdminStore } from "../../stores/useAdminStore";
 import Button from "../Button/Button";
 import FileSystem from "./FileSystem";
 
 function FileSystemRoute() {
   const navigate = useNavigate();
+  const { adminState, setAdminState } = useAdminStore();
+
+  useEffect(() => {
+    if (adminState === AdminState.NONE) {
+      setAdminState(AdminState.ADMIN);
+    }
+  }, [adminState, setAdminState]);
   return (
     <div className="grow flex flex-col overflow-hidden">
       <div className="w-full flex flex-row justify-between shrink-0">
