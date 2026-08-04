@@ -7,7 +7,7 @@ function ServerInfo() {
       <div className="block md:ml-28 ml-14">
         <div className="md:text-3xl text-xl">Connected to</div>
         <div className="md:text-3xl text-xl">
-          gabri3445 server, version {__APP_VERSION__}
+          jayyd server, version {__APP_VERSION__}
         </div>
         <div className="md:text-xl">@ 93.43.233.0</div>
       </div>

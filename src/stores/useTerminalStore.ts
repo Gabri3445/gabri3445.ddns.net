@@ -16,7 +16,7 @@ export interface TerminalStore {
 
 export const useTerminalStore = create<TerminalStore>((set, get) => ({
   terminalHistory:
-    "> connect 93.43.233.0\nConnection Established ::\nConnected to gabri3445 Server@93.43.233.0\n93.43.233.0@>help",
+    "> connect 93.43.233.0\nConnection Established ::\nConnected to jayyd Server@93.43.233.0\n93.43.233.0@>help",
   hidePrompt: false,
   prompt: "93.43.233.0@>",
   promptInput: "",

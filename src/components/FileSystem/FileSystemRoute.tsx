@@ -7,7 +7,7 @@ function FileSystemRoute() {
   return (
     <div className="grow flex flex-col overflow-hidden">
       <div className="w-full flex flex-row justify-between shrink-0">
-        <div className="text-3xl mt-2 ml-1">gabri3445 PC File System</div>
+        <div className="text-3xl mt-2 ml-1">jayyd PC File System</div>
         <div className="mt-2 mr-2">
           <Button
             text="&lt;-" //TODO: center the dash char

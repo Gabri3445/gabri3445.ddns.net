@@ -71,14 +71,14 @@ function ButtonList() {
         isBig={true}
         sideColor={color(false)}
         height="h-12"
-        onClick={() => goToLink("https://github.com/Gabri3445")}
+        onClick={() => goToLink("https://github.com/jayyd-kit")}
       />
       <Button
         text="View Source"
         isBig={true}
         sideColor={color(false)}
         height="h-12"
-        onClick={() => goToLink("https://github.com/Gabri3445/gabri3445.com")}
+        onClick={() => goToLink("https://github.com/jayyd-kit/gabri3445.com")}
       />
       <Button
         text="Open LinkedIn"
